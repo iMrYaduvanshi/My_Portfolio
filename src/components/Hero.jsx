@@ -21,7 +21,7 @@ function Hero() {
           <h1 className="mb-5 max-w-4xl text-[2.6rem] font-bold leading-[0.95] sm:mb-6 sm:text-5xl md:text-7xl">
             I build practical full stack
             <span className="block bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400 bg-clip-text text-transparent">
-              solutions with Python and Java.
+              solutions for modern ideas.
             </span>
           </h1>
 
