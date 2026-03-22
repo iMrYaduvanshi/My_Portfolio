@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --reef-surface: rgba(191, 245, 255, 0.42);
+  --reef-glow: rgba(45, 212, 191, 0.22);
+  --reef-deep: rgba(6, 78, 110, 0.72);
+  --reef-floor: rgba(2, 6, 23, 0.98);
+  --reef-line: rgba(191, 219, 254, 0.05);
+  --reef-card: rgba(2, 18, 36, 0.5);
+  --reef-card-strong: rgba(3, 12, 24, 0.74);
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% -12%, rgba(191, 219, 254, 0.22), transparent 14%),
+    radial-gradient(circle at 50% 8%, rgba(56, 189, 248, 0.08), transparent 20%),
+    linear-gradient(
+      180deg,
+      #18324e 0%,
+      #112b45 10%,
+      #0c2741 22%,
+      #0a2238 36%,
+      #084665 52%,
+      #052a43 70%,
+      #031423 86%,
+      #020617 100%
+    );
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(191, 219, 254, 0.12), transparent 10%),
+    linear-gradient(104deg, transparent 16%, rgba(191, 219, 254, 0.08) 25%, transparent 33%),
+    linear-gradient(76deg, transparent 22%, rgba(125, 211, 252, 0.06) 30%, transparent 38%),
+    linear-gradient(88deg, transparent 55%, rgba(56, 189, 248, 0.05) 62%, transparent 70%),
+    radial-gradient(circle at 15% 18%, rgba(45, 212, 191, 0.1), transparent 16%),
+    radial-gradient(circle at 82% 34%, rgba(34, 211, 238, 0.08), transparent 18%),
+    linear-gradient(var(--reef-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--reef-line) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, auto, auto, 88px 88px, 88px 88px;
+  pointer-events: none;
+  opacity: 0.54;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 70%, rgba(45, 212, 191, 0.18), transparent 16%),
+    radial-gradient(circle at 82% 80%, rgba(244, 114, 182, 0.14), transparent 16%),
+    radial-gradient(circle at 52% 112%, rgba(14, 165, 233, 0.28), transparent 30%),
+    linear-gradient(180deg, transparent 0%, transparent 18%, rgba(5, 15, 28, 0.18) 38%, rgba(2, 6, 23, 0.44) 62%, rgba(2, 6, 23, 0.78) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  position: relative;
+}
+
+.reef-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.reef-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 88%, rgba(20, 184, 166, 0.14), transparent 18%),
+    radial-gradient(circle at 28% 94%, rgba(59, 130, 246, 0.12), transparent 20%),
+    radial-gradient(circle at 68% 90%, rgba(244, 114, 182, 0.1), transparent 18%),
+    radial-gradient(circle at 88% 84%, rgba(45, 212, 191, 0.12), transparent 16%);
+  filter: blur(12px);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.reef-shell::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 82vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
+    radial-gradient(circle, rgba(191, 219, 254, 0.28) 0 1.2px, transparent 1.3px);
+  background-size: auto, auto, 120px 120px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.4), transparent 88%);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: -1;
+}
+
+section {
+  position: relative;
+  --section-darkness: transparent;
+  --section-glow-left: rgba(34, 211, 238, 0.08);
+  --section-glow-right: rgba(45, 212, 191, 0.06);
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 30%, var(--section-glow-left), transparent 22%),
+    radial-gradient(circle at 84% 72%, var(--section-glow-right), transparent 24%),
+    linear-gradient(180deg, transparent 0%, var(--section-darkness) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: min(70vw, 620px);
+  height: 140px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--reef-glow), transparent 68%);
+  filter: blur(24px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+#home {
+  --section-darkness: rgba(2, 12, 26, 0.34);
+  --section-glow-left: rgba(148, 163, 184, 0.06);
+  --section-glow-right: rgba(56, 189, 248, 0.06);
+}
+
+#about {
+  --section-darkness: rgba(3, 18, 33, 0.16);
+  --section-glow-left: rgba(45, 212, 191, 0.1);
+  --section-glow-right: rgba(56, 189, 248, 0.1);
+}
+
+#experience {
+  --section-darkness: rgba(3, 16, 30, 0.28);
+  --section-glow-left: rgba(45, 212, 191, 0.12);
+  --section-glow-right: rgba(244, 114, 182, 0.08);
+}
+
+#projects {
+  --section-darkness: rgba(3, 12, 24, 0.42);
+  --section-glow-left: rgba(34, 211, 238, 0.14);
+  --section-glow-right: rgba(45, 212, 191, 0.12);
+}
+
+#certifications {
+  --section-darkness: rgba(2, 10, 20, 0.5);
+  --section-glow-left: rgba(125, 211, 252, 0.12);
+  --section-glow-right: rgba(244, 114, 182, 0.1);
+}
+
+#skills {
+  --section-darkness: rgba(2, 8, 18, 0.62);
+  --section-glow-left: rgba(52, 211, 153, 0.12);
+  --section-glow-right: rgba(34, 211, 238, 0.14);
+}
+
+#tech,
+#contact {
+  --section-darkness: rgba(2, 6, 14, 0.72);
+  --section-glow-left: rgba(45, 212, 191, 0.12);
+  --section-glow-right: rgba(56, 189, 248, 0.1);
+}
+
+article,
+.group.rounded-\[1\.5rem\],
+.group.rounded-\[2rem\],
+.relative.overflow-hidden.rounded-\[1\.75rem\] {
+  background-color: var(--reef-card);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 24px 60px rgba(2, 6, 23, 0.28),
+    0 0 32px rgba(34, 211, 238, 0.06);
+}
+
+article:hover,
+.group:hover {
+  box-shadow:
+    0 0 0 1px rgba(125, 211, 252, 0.08),
+    0 28px 80px rgba(2, 6, 23, 0.42),
+    0 0 42px rgba(45, 212, 191, 0.14);
+}
+
+nav,
+[class*="bg-slate-950/95"],
+[class*="bg-slate-950/70"],
+[class*="bg-slate-950/60"] {
+  background-color: var(--reef-card-strong) !important;
+}
+/* Flip Card */
+.perspective { perspective: 1000px; }
+.transform-style { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+.flip-card-inner {
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
