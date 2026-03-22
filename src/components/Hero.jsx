@@ -19,9 +19,9 @@ function Hero() {
           </p>
 
           <h1 className="mb-5 max-w-4xl text-[2.6rem] font-bold leading-[0.95] sm:mb-6 sm:text-5xl md:text-7xl">
-            I build full stack products
+            I build practical full stack
             <span className="block bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400 bg-clip-text text-transparent">
-              with Python, Java, and data-driven thinking.
+              solutions with Python and Java.
             </span>
           </h1>
 
